@@ -2,57 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import Header from "./header-section";
 import FooterSection from "./footer-section";
-import { StaticQuery, graphql } from "gatsby";
 import ScrollToButtonButton from "./scroll-to-top-button";
 
 const Layout = (props) => {
-  console.log(props);
-  const { data } = props;
   const { children } = props;
-  const sample_page = data?.allButterPage?.nodes[0];
+  const siteMetadata = props.pageContext.siteMetaData.seo.edges[0].node;
   const urlParams = new URLSearchParams(props.location.search);
-  const urlQuery = urlParams.get("query");
+  const urlQuery = urlParams.get("q");
+
   return (
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          seo: allButterPage {
-            edges {
-              node {
-                id
-                seo {
-                  description
-                  title
-                }
-              }
-            }
-          }
-          site {
-            siteMetadata {
-              title
-            }
-          }
+    <>
+      <Header
+        siteTitle={
+          props?.pageContext?.slug ||
+          urlQuery ||
+          siteMetadata?.seo?.title ||
+          "ButterCMS"
         }
-      `}
-      render={(data) => (
-        <>
-          <Header
-            siteTitle={
-              sample_page?.seo?.title ||
-              props?.pageContext?.slug ||
-              urlQuery ||
-              "ButterCMS"
-            }
-            mainMenu={props?.pageContext?.mainMenu || []}
-          />
+        mainMenu={props?.pageContext?.mainMenu || []}
+        siteMetaData={props.pageContext.siteMetaData}
+      />
 
-          {children}
+      {children}
 
-          <FooterSection mainMenu={props?.pageContext?.mainMenu || []} />
-          <ScrollToButtonButton />
-        </>
-      )}
-    />
+      <FooterSection mainMenu={props?.pageContext?.mainMenu || []} />
+      <ScrollToButtonButton />
+    </>
   );
 };
 

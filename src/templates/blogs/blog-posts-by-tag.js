@@ -8,7 +8,7 @@ import CategoriesWidget from "../../components/blog/categories-widget";
 
 export default function Category(props) {
   const { post, categories, slug } = props.pageContext;
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     setLoader(true);
@@ -22,7 +22,7 @@ export default function Category(props) {
     });
     setPosts(postByTag);
     setLoader(false);
-  }, [slug]);
+  }, [post, slug]);
   return (
     <>
       {loader ? <Preloader /> : null}
@@ -35,14 +35,10 @@ export default function Category(props) {
                   <h2>Blog Posts by Category</h2>
                   <ul className="breadcrumb-nav">
                     <li>
-                      <a href="/">
-                        <a>Home</a>
-                      </a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/blog">
-                        <a>Blog</a>
-                      </a>
+                      <a href="/blog">Blog</a>
                     </li>
                     <li>Category: {slug}</li>
                   </ul>

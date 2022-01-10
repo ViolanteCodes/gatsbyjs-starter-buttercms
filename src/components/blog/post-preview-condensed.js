@@ -17,7 +17,7 @@ export default function PostPreviewCondensed({
               alt={coverImageAlt}
               layout="fill"
               objectFit="cover"
-              className="blog-preview-css"
+              className="img-fluid"
             />
           </div>
         )}

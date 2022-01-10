@@ -1,131 +1,93 @@
-Kick off your Gatsby + ButterCMS with this default boilerplate. 
+# GatsbyJS + ButterCMS Starter Project
+
+<!-- Brackets [] are placeholders. When readme is complete, all brackets should be
+updated with the correct value and comments deleted from the file. Please number
+sections accordingly to move people through the process as cleanly as possible.-->
+
+This GatsbyJS starter project fully integrates with dynamic sample content from your ButterCMS account, including main menu, pages, blog posts, categories, and tags, all with a beautiful, custom theme with already-implemented search functionality. All of the included sample content is automatically created in your account dashboard when you sign up for a free trial of ButterCMS.
+
 
 [Live demo](https://gatsbyjsstarterbuttercms.gatsbyjs.io/)
+<!-- If there is a live deployment/demo, e.g. vercel:
+Live Demo: [link]
+ -->
+
+<!-- If there's a quick deployment method set up:
+Once created, this project can be easily and quickly deployed to [location] from [method, 
+e.g., "the CLI" ] (see instructions below)
+-->
+
+## 1. Installation
+
+First, clone the repo and install the dependencies by running below commands, depending on your preferred setup:
+
+```bash
+$ npx i
+```
+
+Or
+
+```bash
+$ yarn
+```
 
 
-## 🚀 Quick start
+### 2. Set API Token
 
-1.  **Create a Gatsby site.**
+To fetch your ButterCMS content, add your API token as an environment variable. 
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+```bash
+$ 'GATSBY_BUTTER_CMS_TOKEN=<Your API Token>' >> .env
+$ 'GATSBY_BUTTER_PREVIEW_MODE=<true/false>' >> .env
+```
 
-    ```sh
-    # create a new Gatsby site using the default starter
-    npx gatsby new my-default-starter https://github.com/butterCMS/gatsby-starter-buttercms
-    ```
-    
-    If you run into an error with `npx`, you may need to first remove `node_modules` then run:
-    
-    ```
-    yarn upgrade --latest
-    yarn install
-    gatsby develop
-    ```
-    
+<!-- Optional build step for frameworks that require a separate build
+command, e.g., npm:
 
-2. **Create Content**
-   
-   For this template to work, you have to create your content on ButterCMS
-   as stated [here](https://buttercms.com/docs/api-client/gatsbyjs)
+### Build App
 
-2. **Configuration**
-    You need to add the API token from your dashboard, along with associated
-    page types, content fileds, and pages.
+Run the following command to the build the app and get it ready for running locally:
 
-    `gatsby-config-js`
+[command]
+-->
 
-    ```js
-     {
-      resolve: `gatsby-source-buttercms`,
-      options: {
-        authToken: `<API_TOKEN>`,
-        // Optional array of Collection key 
-        contentFields: {
-          keys: [`collection_key`],
-          // Optional. Set to 1 to enable test mode for viewing draft content.
-          test: 0,
-        },
-        // Optional array of page type keys
-        pageTypes: [`page_type_key`],
-        // Optional array of locales (if configured in your account)
-        locales: [`en`, `es`, `fr`]
-      },
-    },
-    ```
+### 3. Run local server
 
-1.  **Start developing.**
+To view the app in the browser, you'll need to run the local development server:
 
-    Navigate into your new site’s directory and start it up.
+```bash
+$ cd gatsbyjs-starter-buttercms
+$ npx run develop 
+```
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+Or
 
-1.  **Open the source code and start editing!**
+```bash
+$ cd gatsbyjs-starter-buttercms
+$ yarn develop 
+```
 
-    Your site is now running at `http://localhost:8000`!
+Congratulations! Your starter project is now live.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+<!-- Note - this example below was written with Gatsby Cloud; please update instructions
+to fit whatever quick deployment host was specified. Please
+used button based deployment if available; see specifications documents to 
+links to button workflows-->
+## 4. Deploy on Gatsby Cloud
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+Deploy your GatsbyJS app using Gatsby Cloud, the creators of Next.js. With the click of a button, you'll create a copy of your starter project in your Git provider account, instantly deploy it, and institute a full content workflow connected to your ButterCMS account. Smooth.
 
-## 🧐 What's inside?
+<!-- Here's an example of the Gatsby Cloud Button. Note that the link is configured to
+allow for a smooth and easy deployment, including necessary environmental variables. 
+For hosts that don't allow you to specify environmental variables in the button link,
+make sure a config file is present in the repo that feeds the names of environmental
+variables to the host.
+-->
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
-
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
-
-3.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-
-4.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
-
-5.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-6.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-7.  **`LICENSE`**: Gatsby is licensed under the MIT license.
-
-8. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-9. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
-
-10. **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Gatsby](https://www.gatsbyjs.com/static/2c9d8be34028a568f89f36ef143f3e17/a3df1/local-futura.jpg)](https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-gatsby-cloud/)
-
-Deployment on Gatsby Cloud
+[![Deploy with Gatsby Cloud](https://i.ibb.co/WvjYxSZ/screenshot-www-gatsbyjs-com-2022-01-08-11-31-44.png)](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/ButterCMS/gatsbyjs-starter-buttercms)
 
 - After signup in Gatsby cloud need to add env variable in Site setting. Add GATSBY_BUTTER_CMS_TOKEN in env
 - for preview mode add GATSBY_BUTTER_PREVIEW_MODE in environment as true it will show preview mode or draft mode
-[![Deploy to Gatsby](https://support.gatsbyjs.com/hc/article_attachments/1500013684942/CleanShot_2021-05-03_at_11.26.48_2x.png)]()
+[![Deploy to Gatsby](https://support.gatsbyjs.com/hc/article_attachments/1500013684942/CleanShot_2021-05-03_at_11.26.48_2x.png)](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/ButterCMS/gatsbyjs-starter-buttercms)
 - Configure webhooks in ButterCMS. Add this preview webhooks and Builds hooks in ButterCMS.
-[![Deploy to Gatsby](https://support.gatsbyjs.com/hc/article_attachments/360101933133/mceclip4.png)]()
-
-## Other
-
-View our [Gatsby Blog engine](https://buttercms.com/gatsbyjs-blog-engine/) and [Gatsby Full CMS](https://buttercms.com/gatsbyjs-cms/) for other examples of using ButterCMS with Gatsby.
+[![Deploy to Gatsby](https://support.gatsbyjs.com/hc/article_attachments/360101933133/mceclip4.png)](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/ButterCMS/gatsbyjs-starter-buttercms)

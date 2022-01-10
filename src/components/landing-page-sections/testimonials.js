@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Testimonial from "./testimonial";
-
+/**
+ * @Testimonials component is used to show slider based on butterCMS content
+ */
 export default function Testimonials({
   headline,
   testimonial: testimonials,

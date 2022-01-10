@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * @Hero component is used to show hero content from the butter cms
+ */
+
 export default function Hero({
   headline,
   subheadline,

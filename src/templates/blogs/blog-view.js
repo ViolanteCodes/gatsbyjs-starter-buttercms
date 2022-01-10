@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import camelcaseKeys from "camelcase-keys";
 import Layout from "../../components/layout";
 import HumanDate from "../../components/human-date";
 import CategoriesWidget from "../../components/blog/categories-widget";
@@ -9,7 +8,7 @@ import Preloader from "../../components/preloader";
 import { Helmet } from "react-helmet";
 export default function BlogPost(props) {
   const { post, categories } = props.pageContext;
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     setLoader(true);
   }, []);
@@ -23,7 +22,7 @@ export default function BlogPost(props) {
         <Helmet>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <title>{post.seo_title}</title>
+          <title>{post?.title}</title>
           <meta name="description" content={post.metaDescription} />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
@@ -34,7 +33,7 @@ export default function BlogPost(props) {
 
           <meta property="og:type" content="website" />
           <meta property="og:url" content={post.url} />
-          <meta property="og:title" content={post.seo_title} />
+          <meta property="og:title" content={post?.title} />
           <meta property="og:image" content={post.featuredImage} />
           <meta property="og:description" content={post.metaDescription} />
           <meta name="twitter:site" content="@ButterCMS" />
@@ -50,14 +49,10 @@ export default function BlogPost(props) {
                   <h2>{post.title}</h2>
                   <ul className="breadcrumb-nav">
                     <li>
-                      <a href="/">
-                        <a>Home</a>
-                      </a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/blog">
-                        <a>Blog</a>
-                      </a>
+                      <a href="/blog">Blog</a>
                     </li>
                     <li>{post.title}</li>
                   </ul>
@@ -79,17 +74,13 @@ export default function BlogPost(props) {
                         <AuthorCard author={post.author} />
                       </li>
                       <li>
-                        <a>
-                          <i className="lni lni-calendar"></i>{" "}
-                          <HumanDate dateString={post.published} />
-                        </a>
+                        <i className="lni lni-calendar"></i>{" "}
+                        <HumanDate dateString={post.published} />
                       </li>
                       <li>
                         {post.tags.map((tag) => (
                           <a key={tag.slug} href={`/blog/tag/${tag.slug}`}>
-                            <a>
-                              <i className="lni lni-tag"></i> {tag.name}
-                            </a>
+                            <i className="lni lni-tag"></i> {tag.name}
                           </a>
                         ))}
                       </li>

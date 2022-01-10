@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+/* eslint-disable */
 export default function ScrollToButtonButton() {
   const [hasScrollToTopButton, setHasScrollToTopButton] = useState(false);
 
@@ -21,7 +21,7 @@ export default function ScrollToButtonButton() {
   return (
     <>
       {hasScrollToTopButton && (
-        <a href="#" className="scroll-top btn-hover">
+        <a href="" className="scroll-top btn-hover">
           <i className="lni lni-chevron-up"></i>
         </a>
       )}

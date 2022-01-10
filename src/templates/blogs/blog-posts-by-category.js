@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import camelcaseKeys from "camelcase-keys";
 import Layout from "../../components/layout";
@@ -6,12 +5,11 @@ import Preloader from "../../components/preloader";
 import PostsList from "../../components/blog/posts-list";
 import SearchWidget from "../../components/blog/search-widget";
 import CategoriesWidget from "../../components/blog/categories-widget";
-import Seo from "../../components/seo";
+/* eslint-disable */
 export default function Category(props) {
-  console.log("props", props);
   const { post, categories, slug } = props.pageContext;
   const [postByCategory, setPostByCategory] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   useEffect(() => {
     setLoader(true);
   }, []);

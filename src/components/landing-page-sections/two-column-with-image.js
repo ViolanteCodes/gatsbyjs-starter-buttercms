@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * @TwoColumnWithImage component will show 2 columns 1 is some description and one is image
+ * based on fetch data it will set images position and contents
+ */
+
 export default function TwoColumnWithImage({
   headline,
   subheadline,

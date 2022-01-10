@@ -1,5 +1,14 @@
 @charset "UTF-8";
-
+/* ============================
+  Template Name: SaaSdeck
+  Author: uideck
+  Description: Bootstrap 5 SaaS Landing Page.
+  Version: 1.0
+=============================== */
+/*===========================
+		COMMON css
+===========================*/
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -243,7 +252,7 @@ p {
   width: 45px;
   height: 45px;
   background: #37C2CC;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   font-size: 18px;
@@ -697,7 +706,6 @@ p {
 
 .navbar-brand {
   padding: 0;
-  display: flex;
 }
 .navbar-brand img {
   max-width: 180px;
@@ -1039,10 +1047,8 @@ p {
   }
 }
 .cta-section .left-image {
-  position: absolute;
   left: 0px;
   bottom: 0;
-  width: 45%;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .cta-section .left-image {
@@ -1052,7 +1058,7 @@ p {
   }
 }
 .cta-section .left-image img {
-  width: 100%;
+  max-width: 100%;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
   .cta-section .left-image img {
@@ -1120,9 +1126,6 @@ p {
 
 .single-blog .blog-header, .single-post .blog-header, .blog-roll-card .blog-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 200px;
-  position: relative;
 }
 
 .single-blog .blog-header h5, .single-post .blog-header h5, .blog-roll-card .blog-header h5 {
@@ -1243,6 +1246,7 @@ p {
   font-weight: 500;
   display: inline-block;
   position: relative;
+  padding-right: 15px;
   margin-right: 15px;
   text-transform: capitalize;
 }
@@ -1285,10 +1289,8 @@ p {
 
 .single-post-meta-info, .blog-roll-card-meta-info {
   font-size: 14px;
-  display: flex;
+  display: inline-block;
   position: relative;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .single-post-meta-info li, .blog-roll-card-meta-info li {
@@ -1302,28 +1304,22 @@ p {
   color: #888;
   font-size: 14px;
   font-weight: 500;
-  display: flex;
-  align-items: center;
 }
-.single-post-meta-info li a .author-avatar, .blog-roll-card-meta-info li a .author-avatar {
+.single-post-meta-info li a img, .blog-roll-card-meta-info li a img {
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  overflow: hidden;
   display: inline-block;
   margin-right: 12px;
-  position: relative;
 }
-
 @media only screen and (min-width: 550px) {
-  .single-post-meta-info li a .author-avatar, .blog-roll-card-meta-info li a .author-avatar {
+  .single-post-meta-info li a img, .blog-roll-card-meta-info li a img {
     height: 35px;
     width: 35px;
   }
 }
-
 @media only screen and (min-width: 768px) {
-  .single-post-meta-info li a .author-avatar, .blog-roll-card-meta-info li a .author-avatar {
+  .single-post-meta-info li a img, .blog-roll-card-meta-info li a img {
     height: 50px;
     width: 50px;
   }
@@ -1356,7 +1352,6 @@ p {
   border-radius: 0;
   width: 100%;
   margin-top: 15px;
-  height: 300px;
 }
 .single-post-thumbnail img {
   width: 100%;
@@ -1366,7 +1361,7 @@ p {
     margin-top: 42px;
   }
 }
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .single-post-thumbnail {
     margin-top: 52px;
   }
@@ -1398,7 +1393,7 @@ p {
 
 @media only screen and (min-width: 768px) {
   .blog-roll-card .single-post-thumbnail {
-  margin-top: 30px;
+    margin-top: 30px;
   }
 }
 
@@ -2473,39 +2468,3 @@ p {
 }
 
 /*# sourceMappingURL=main.css.map */
-
-
-.blog-preview-css{
-  position: absolute;
-  inset: 0px;
-  box-sizing: border-box;
-  padding: 0px;
-  border: none;
-  margin: auto;
-  display: block;
-  width: 0px;
-  height: 0px;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-
-.blog-page-profile-img {
-  position: absolute;
-  inset: 0px;
-  box-sizing: border-box;
-  padding: 0px;
-  border: none;
-  margin: auto;
-  display: block;
-  width: 0px;
-  height: 0px;
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}

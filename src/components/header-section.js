@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import SEO from "./seo";
 import MainMenu from "./main-menu/main-menu";
 
-export default function HeaderSection({ mainMenu, siteTitle }) {
+export default function HeaderSection(props) {
+  const { mainMenu, siteTitle } = props;
   const [isNavbarSticky, setIsNavbarSticky] = useState(false);
   const navbarAreaEl = useRef(null);
 
@@ -21,7 +22,7 @@ export default function HeaderSection({ mainMenu, siteTitle }) {
 
   return (
     <header className="header">
-      <SEO title={siteTitle} />
+      <SEO title={siteTitle} siteMetaData={props.siteMetaData} hero="dsfdsf" />
       <div
         ref={navbarAreaEl}
         className={`navbar-area ${isNavbarSticky ? "sticky" : ""}`}

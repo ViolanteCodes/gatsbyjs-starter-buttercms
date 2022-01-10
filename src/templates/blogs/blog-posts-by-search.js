@@ -10,19 +10,22 @@ import CategoriesWidget from "../../components/blog/categories-widget";
 export default function Search(props) {
   const { categories } = props.pageContext;
   const [query, setQuery] = useState("");
-  const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(true);
   const [postBySearch, setPostBySearch] = useState([]);
   useEffect(() => {
     setLoader(true);
   }, []);
-  useEffect(async () => {
+  useEffect(() => {
     const urlParams = new URLSearchParams(props.location.search);
-    const urlQuery = urlParams.get("query");
-    let searchedPost = await searchPosts(urlQuery);
-    setQuery(urlQuery);
-    setPostBySearch(searchedPost);
-    setLoader(false);
-  }, []);
+    const urlQuery = urlParams.get("q");
+    async function fetchPosts(params) {
+      let searchedPost = await searchPosts(urlQuery);
+      setQuery(urlQuery);
+      setPostBySearch(searchedPost);
+      setLoader(false);
+    }
+    fetchPosts();
+  }, [props.location.search]);
   return (
     <>
       {loader ? <Preloader /> : null}
@@ -35,14 +38,10 @@ export default function Search(props) {
                   <h2>Search Results</h2>
                   <ul className="breadcrumb-nav">
                     <li>
-                      <a href="/">
-                        <a>Home</a>
-                      </a>
+                      <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/blog">
-                        <a>Blog</a>
-                      </a>
+                      <a href="/blog">Blog</a>
                     </li>
                     <li>Search: &#34;{query}&#34;</li>
                   </ul>
