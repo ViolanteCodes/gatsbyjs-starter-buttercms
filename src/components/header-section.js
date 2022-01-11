@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import SEO from "./seo";
+import Seo from "./seo";
 import MainMenu from "./main-menu/main-menu";
 
 export default function HeaderSection(props) {
@@ -22,7 +22,7 @@ export default function HeaderSection(props) {
 
   return (
     <header className="header">
-      <SEO title={siteTitle} siteMetaData={props.siteMetaData} hero="dsfdsf" />
+      <Seo title={siteTitle} siteMetaData={props.siteMetaData} hero="dsfdsf" />
       <div
         ref={navbarAreaEl}
         className={`navbar-area ${isNavbarSticky ? "sticky" : ""}`}

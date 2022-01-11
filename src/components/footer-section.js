@@ -1,5 +1,5 @@
 import React from 'react';
-
+/* eslint-disable */
 export default function FooterSection({ mainMenu }) {
     const links = mainMenu.map(link => ({
         ...link,
