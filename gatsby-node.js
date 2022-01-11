@@ -51,17 +51,27 @@ exports.createPages = async ({ graphql, actions }) => {
       page_size: "10",
     };
 
-    let butterNevigationMenu = await butter.content.retrieve(
-      ["navigation_menu"],
-      params
-    );
+    let butterNevigationMenu =  await graphql(`
+    {
+      allButterCollection {
+        edges {
+          node {
+            value {
+              menu_items {
+                label
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+   
     let categories = await butter.category.list();
     categories = categories?.data?.data;
-    let mainMenu = butterNevigationMenu.data.data.navigation_menu.find(
-      (menu) => menu.name == "Main menu"
-    );
     let mainMenuList = [];
-    mainMenu.menu_items.forEach((page) => {
+    butterNevigationMenu.data.allButterCollection.edges[0].node.value[0].menu_items.forEach((page) => {
       mainMenuList.push({
         label: page.label,
         url: page.url,
