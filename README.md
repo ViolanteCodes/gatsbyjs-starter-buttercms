@@ -27,8 +27,8 @@ $ yarn run develop
 To fetch your ButterCMS content, add your API token as an environment variable.
 
 ```bash
-'GATSBY_BUTTER_CMS_TOKEN=<Your API Token>' >> .env
-'GATSBY_BUTTER_PREVIEW_MODE=<true>' >> .env
+'GATSBY_BUTTER_CMS_TOKEN=<Your API Token>' >> .env.development
+'GATSBY_BUTTER_PREVIEW_MODE=<true>' >> .env.development
 ```
 
 ### 3. Run local server
