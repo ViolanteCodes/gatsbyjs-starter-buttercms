@@ -20,7 +20,6 @@ try {
 
 let plugins = [
   `gatsby-plugin-react-helmet`,
-  `gatsby-plugin-react-head`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {
